@@ -99,7 +99,7 @@ The function `~bsl.set_log_level` can be used to edit the level of the logger.
 
  .. code-block:: none
 
-    [99_logging:<module>:35] DEBUG: Log that will now be displayed. (2023-05-11 01:09:09,414)
+    [99_logging:<module>:35] DEBUG: Log that will now be displayed. (2023-08-02 01:14:21,148)
 
 
 
@@ -135,7 +135,7 @@ with `~bsl.set_log_level`. Additional file handlers can be added with
 
  .. code-block:: none
 
-    [99_logging:<module>:51] DEBUG: Log displayed but not saved to file. (2023-05-11 01:09:09,491)
+    [99_logging:<module>:51] DEBUG: Log displayed but not saved to file. (2023-08-02 01:14:21,229)
     [99_logging.<module>] INFO: Log displayed and saved to file.
 
 
@@ -205,7 +205,7 @@ mantadory depending on the situation on Windows.
 
  .. code-block:: none
 
-    [<StreamHandler (NOTSET)>, <FileHandler /tmp/tmpif_85hnk/mylogs.log (INFO)>]
+    [<StreamHandler (NOTSET)>, <FileHandler /tmp/tmpydak4q03/mylogs.log (INFO)>]
 
 
 
@@ -213,7 +213,7 @@ mantadory depending on the situation on Windows.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.747 seconds)
+   **Total running time of the script:** ( 0 minutes  0.773 seconds)
 
 **Estimated memory usage:**  9 MB
 

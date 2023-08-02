@@ -212,7 +212,7 @@ Let's visualize how this 3 different window are placed on the timeline:
  .. code-block:: none
 
 
-    [<matplotlib.lines.Line2D object at 0x7f0f23c9e940>]
+    [<matplotlib.lines.Line2D object at 0x7f888a3910a0>]
 
 
 
@@ -246,7 +246,7 @@ vertically with a fix offset:
  .. code-block:: none
 
 
-    [<matplotlib.lines.Line2D object at 0x7f0f21a32880>]
+    [<matplotlib.lines.Line2D object at 0x7f888a0c0250>]
 
 
 
@@ -480,8 +480,8 @@ the number of acquired window (points) may vary.
 
  .. code-block:: none
 
-    [99, 96, 96, 96]
-    [99, 96, 96, 96]
+    [98, 96, 96, 97]
+    [98, 96, 96, 97]
 
 
 
@@ -507,7 +507,7 @@ The saved `~mne.io.Raw` instance can then be loaded and analyzed.
 
  .. code-block:: none
 
-    <Raw | example_real_time-StreamPlayer-raw.fif, 65 x 6592 (12.9 s), ~3.3 MB, data loaded>
+    <Raw | example_real_time-StreamPlayer-raw.fif, 65 x 6608 (12.9 s), ~3.3 MB, data loaded>
 
 
 
@@ -533,9 +533,9 @@ Stop the mock LSL stream.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  21.112 seconds)
+   **Total running time of the script:** ( 0 minutes  21.761 seconds)
 
-**Estimated memory usage:**  23 MB
+**Estimated memory usage:**  24 MB
 
 
 .. _sphx_glr_download_generated_tutorials_25_stream_receiver_regulation_of_alpha_waves.py:
