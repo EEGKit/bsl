@@ -5,82 +5,13 @@
 Tutorials
 =========
 
-This page contains examples using ``BSL``. Additional examples can be found on the
-HNP - MEEG-BCI Platform `github demo-realtime repository <fcbg hnp gh-demo-rt_>`_.
+This page contains examples using ``BSL``.
 
 
 
 .. raw:: html
 
     <div class="sphx-glr-thumbnails">
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Testing designs for online paradigm can be difficult. Access to hardware measuring real-time br...">
-
-.. only:: html
-
-  .. image:: /generated/tutorials/images/thumb/sphx_glr_00_stream_player_thumb.gif
-    :alt:
-
-  :ref:`sphx_glr_generated_tutorials_00_stream_player.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">StreamPlayer: simulate an LSL stream</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="A resting-state recording is a simple offline recording during which the brain activity of a su...">
-
-.. only:: html
-
-  .. image:: /generated/tutorials/images/thumb/sphx_glr_10_stream_recorder_thumb.gif
-    :alt:
-
-  :ref:`sphx_glr_generated_tutorials_10_stream_recorder.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">StreamRecorder: resting-state recording</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="A ~bsl.StreamReceiver can be used to create a data buffer on which different operations have al...">
-
-.. only:: html
-
-  .. image:: /generated/tutorials/images/thumb/sphx_glr_20_stream_receiver_filtered_buffer_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_generated_tutorials_20_stream_receiver_filtered_buffer.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">StreamReceiver: real-time buffer filtered with a causal filter</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="BCI, Neurofeedback, or any online paradigm that needs access to real-time signals to compute a ...">
-
-.. only:: html
-
-  .. image:: /generated/tutorials/images/thumb/sphx_glr_25_stream_receiver_regulation_of_alpha_waves_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_generated_tutorials_25_stream_receiver_regulation_of_alpha_waves.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">StreamReceiver: real-time alpha band power</div>
-    </div>
 
 
 .. raw:: html
@@ -108,10 +39,6 @@ HNP - MEEG-BCI Platform `github demo-realtime repository <fcbg hnp gh-demo-rt_>`
 .. toctree::
    :hidden:
 
-   /generated/tutorials/00_stream_player
-   /generated/tutorials/10_stream_recorder
-   /generated/tutorials/20_stream_receiver_filtered_buffer
-   /generated/tutorials/25_stream_receiver_regulation_of_alpha_waves
    /generated/tutorials/99_logging
 
 

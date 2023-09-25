@@ -1,12 +1,14 @@
 Triggers
-========
+--------
 
 .. currentmodule:: bsl.triggers
 
-.. autosummary::
-   :toctree: generated/
+Triggers are commonly used in combination with LSL to mark events in time.
 
-   TriggerDef
+.. autosummary::
+   :toctree: ../generated/api
+   :nosignatures:
+
    MockTrigger
    LSLTrigger
    ParallelPortTrigger

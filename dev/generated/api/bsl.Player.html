@@ -1,0 +1,580 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="LSL (low-level)" href="../../api/lsl%20%28low-level%29.html" /><link rel="prev" title="bsl.Stream" href="bsl.Stream.html" />
+
+    <link rel="shortcut icon" href="../../_static/bsl-icon.svg"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+        <title>bsl.Player - BSL</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/style.css?v=0bd98ae2" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">BSL</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/icon-with-acronym.svg" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">API References</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API References</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/most-used%20classes.html">Most-used classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/lsl%20%28low-level%29.html">LSL (low-level)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/triggers.html">Triggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utilities.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/legacy.html">Legacy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../command_line.html">Command line</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/99_logging.html">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../changes/index.html">Changelog</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Changelog</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changes/latest.html">Version 1.0</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="bsl-player">
+<h1>bsl.Player<a class="headerlink" href="#bsl-player" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="bsl.Player">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bsl.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L31-L332"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player" title="Permalink to this definition">#</a></dt>
+<dd><p>Class for creating a mock LSL stream.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>fname</strong><span class="classifier"><a class="reference external" href="https://mne.tools/stable/glossary.html#term-path-like" title="(in MNE v1.5)"><span class="xref std std-term">path-like</span></a></span></dt><dd><p>Path to the file to re-play as a mock LSL stream. MNE-Python must be able to
+load the file with <a class="reference external" href="https://mne.tools/stable/generated/mne.io.read_raw.html#mne.io.read_raw" title="(in MNE v1.5)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.io.read_raw()</span></code></a>.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Name of the mock LSL stream. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the name <code class="docutils literal notranslate"><span class="pre">BSL-Player</span></code> is used.</p>
+</dd>
+<dt><strong>chunk_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> <code class="docutils literal notranslate"><span class="pre">≥</span> <span class="pre">1</span></code></span></dt><dd><p>Number of samples pushed at once on the <a class="reference internal" href="bsl.lsl.StreamOutlet.html#bsl.lsl.StreamOutlet" title="bsl.lsl.StreamOutlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamOutlet</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The file re-played is loaded in memory. Thus, large files are not recommended. Once
+the end-of-file is reached, the player loops back to the beginning which can lead to
+a small discontinuity in the data stream.</p>
+<p class="rubric">Attributes</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.ch_names" title="bsl.Player.ch_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ch_names</span></code></a></p></td>
+<td><p>Name of the channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.chunk_size" title="bsl.Player.chunk_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chunk_size</span></code></a></p></td>
+<td><p>Number of samples in a chunk.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.compensation_grade" title="bsl.Player.compensation_grade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compensation_grade</span></code></a></p></td>
+<td><p>The current gradient compensation grade.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.fname" title="bsl.Player.fname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fname</span></code></a></p></td>
+<td><p>Path to file played.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.info" title="bsl.Player.info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">info</span></code></a></p></td>
+<td><p>Info of the LSL stream.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.name" title="bsl.Player.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Name of the LSL stream.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Methods</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.get_channel_types" title="bsl.Player.get_channel_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_channel_types</span></code></a>([picks, unique, only_data_chs])</p></td>
+<td><p>Get a list of channel type for each channel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.get_channel_units" title="bsl.Player.get_channel_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_channel_units</span></code></a>([picks, only_data_chs])</p></td>
+<td><p>Get a list of channel unit for each channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.rename_channels" title="bsl.Player.rename_channels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_channels</span></code></a>(mapping[, allow_duplicates, ...])</p></td>
+<td><p>Rename channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.set_channel_units" title="bsl.Player.set_channel_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_channel_units</span></code></a>(mapping)</p></td>
+<td><p>Define the channel unit multiplication factor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bsl.Player.start" title="bsl.Player.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start</span></code></a>()</p></td>
+<td><p>Start streaming data on the LSL <a class="reference internal" href="bsl.lsl.StreamOutlet.html#bsl.lsl.StreamOutlet" title="bsl.lsl.StreamOutlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StreamOutlet</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bsl.Player.stop" title="bsl.Player.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
+<td><p>Stop streaming data on the LSL <a class="reference internal" href="bsl.lsl.StreamOutlet.html#bsl.lsl.StreamOutlet" title="bsl.lsl.StreamOutlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamOutlet</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.get_channel_types">
+<span class="sig-name descname"><span class="pre">get_channel_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_data_chs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/mne-tools/mne-python/blob/maint/1.5/mne/io/meas_info.py#L891-L911"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.get_channel_types" title="Permalink to this definition">#</a></dt>
+<dd><p>Get a list of channel type for each channel.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Channels to include. Slices and lists of integers will be interpreted as 
+channel indices. In lists, channel <em>type</em> strings (e.g., <code class="docutils literal notranslate"><span class="pre">['meg',</span> 
+<span class="pre">'eeg']</span></code>) will pick channels of those types, channel <em>name</em> strings (e.g., 
+<code class="docutils literal notranslate"><span class="pre">['MEG0111',</span> <span class="pre">'MEG2623']</span></code> will pick the given channels. Can also be the 
+string values “all” to pick all channels, or “data” to pick <a class="reference external" href="https://mne.tools/stable/glossary.html#term-data-channels" title="(in MNE v1.5)"><span class="xref std std-term">data 
+channels</span></a>. None (default) will pick all channels. Note that channels in 
+<code class="docutils literal notranslate"><span class="pre">info['bads']</span></code> <em>will be included</em> if their names or indices are 
+explicitly provided.</p>
+</dd>
+<dt><strong>unique</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether to return only unique channel types. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt><strong>only_data_chs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether to ignore non-data channels. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>channel_types</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></span></dt><dd><p>The channel types.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.get_channel_units">
+<span class="sig-name descname"><span class="pre">get_channel_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_data_chs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L84-L112"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.get_channel_units" title="Permalink to this definition">#</a></dt>
+<dd><p>Get a list of channel unit for each channel.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>picks</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Channels to include. Slices and lists of integers will be interpreted as 
+channel indices. In lists, channel <em>type</em> strings (e.g., <code class="docutils literal notranslate"><span class="pre">['meg',</span> 
+<span class="pre">'eeg']</span></code>) will pick channels of those types, channel <em>name</em> strings (e.g., 
+<code class="docutils literal notranslate"><span class="pre">['MEG0111',</span> <span class="pre">'MEG2623']</span></code> will pick the given channels. Can also be the 
+string values “all” to pick all channels, or “data” to pick <a class="reference external" href="https://mne.tools/stable/glossary.html#term-data-channels" title="(in MNE v1.5)"><span class="xref std std-term">data 
+channels</span></a>. None (default) will pick all channels. Note that channels in 
+<code class="docutils literal notranslate"><span class="pre">info['bads']</span></code> <em>will be included</em> if their names or indices are 
+explicitly provided.</p>
+</dd>
+<dt><strong>only_data_chs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>Whether to ignore non-data channels. Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>channel_units</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a> of shape (2,)</span></dt><dd><p>A list of 2-element tuples. The first element contains the unit FIFF code
+and its associated name, e.g. <code class="docutils literal notranslate"><span class="pre">107</span> <span class="pre">(FIFF_UNIT_V)</span></code> for Volts. The second
+element contains the unit multiplication factor, e.g. <code class="docutils literal notranslate"><span class="pre">-6</span> <span class="pre">(FIFF_UNITM_MU)</span></code>
+for micro (corresponds to <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.rename_channels">
+<span class="sig-name descname"><span class="pre">rename_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_duplicates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L114-L137"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.rename_channels" title="Permalink to this definition">#</a></dt>
+<dd><p>Rename channels.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mapping</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a></span></dt><dd><p>A dictionary mapping the old channel to a new channel name e.g.
+<code class="docutils literal notranslate"><span class="pre">{'EEG061'</span> <span class="pre">:</span> <span class="pre">'EEG161'}</span></code>. Can also be a callable function that takes and
+returns a string.</p>
+</dd>
+<dt><strong>allow_duplicates</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p>If True (default False), allow duplicates, which will automatically be
+renamed with <code class="docutils literal notranslate"><span class="pre">-N</span></code> at the end.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">bool</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Sets the verbosity level. The verbosity increases gradually between
+<code class="docutils literal notranslate"><span class="pre">&quot;CRITICAL&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ERROR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;WARNING&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;DEBUG&quot;</span></code>.
+If None is provided, the verbosity is set to <code class="docutils literal notranslate"><span class="pre">&quot;WARNING&quot;</span></code>.
+If a bool is provided, the verbosity is set to <code class="docutils literal notranslate"><span class="pre">&quot;WARNING&quot;</span></code> for False and
+to <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code> for True.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.set_channel_units">
+<span class="sig-name descname"><span class="pre">set_channel_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L153-L193"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.set_channel_units" title="Permalink to this definition">#</a></dt>
+<dd><p>Define the channel unit multiplication factor.</p>
+<p>By convention, MNE stores data in SI units. But systems often stream in non-SI
+units. For instance, EEG amplifiers often stream in microvolts. Thus, to mock an
+LSL stream from an MNE-compatible file, the data might need to be scale to match
+the unit of the system to mock. This function will both change the unit
+multiplication factor and rescale the associated data.</p>
+<p>The unit itself is defined by the sensor type. Change the channel type in the
+<code class="docutils literal notranslate"><span class="pre">raw</span></code> recording with <a class="reference external" href="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.set_channel_types" title="(in MNE v1.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mne.io.Raw.set_channel_types()</span></code></a> before providing the
+recording to the <a class="reference internal" href="#bsl.Player" title="bsl.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mapping</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>A dictionary mapping a channel to a unit, e.g. <code class="docutils literal notranslate"><span class="pre">{'EEG061':</span> <span class="pre">'microvolts'}</span></code>.
+The unit can be given as a human-readable string or as a unit multiplication
+factor, e.g. <code class="docutils literal notranslate"><span class="pre">-6</span></code> for microvolts corresponding to <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If the human-readable unit of your channel is not yet supported by BSL, please
+contact the developers on GitHub to add your units to the known set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L139-L151"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.start" title="Permalink to this definition">#</a></dt>
+<dd><p>Start streaming data on the LSL <a class="reference internal" href="bsl.lsl.StreamOutlet.html#bsl.lsl.StreamOutlet" title="bsl.lsl.StreamOutlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StreamOutlet</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bsl.Player.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fcbg-hnp-meeg/bsl/blob/main/bsl/player.py#L195-L204"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bsl.Player.stop" title="Permalink to this definition">#</a></dt>
+<dd><p>Stop streaming data on the LSL <a class="reference internal" href="bsl.lsl.StreamOutlet.html#bsl.lsl.StreamOutlet" title="bsl.lsl.StreamOutlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamOutlet</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.ch_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ch_names</span></span><a class="headerlink" href="#bsl.Player.ch_names" title="Permalink to this definition">#</a></dt>
+<dd><p>Name of the channels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.chunk_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chunk_size</span></span><a class="headerlink" href="#bsl.Player.chunk_size" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of samples in a chunk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.compensation_grade">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compensation_grade</span></span><a class="headerlink" href="#bsl.Player.compensation_grade" title="Permalink to this definition">#</a></dt>
+<dd><p>The current gradient compensation grade.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.fname">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fname</span></span><a class="headerlink" href="#bsl.Player.fname" title="Permalink to this definition">#</a></dt>
+<dd><p>Path to file played.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.info">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#bsl.Player.info" title="Permalink to this definition">#</a></dt>
+<dd><p>Info of the LSL stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://mne.tools/stable/generated/mne.Info.html#mne.Info" title="(in MNE v1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Info</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bsl.Player.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#bsl.Player.name" title="Permalink to this definition">#</a></dt>
+<dd><p>Name of the LSL stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../api/lsl%20%28low-level%29.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">LSL (low-level)</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="bsl.Stream.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">bsl.Stream</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, M. Scheltienne, A. Desvachez, K. Lee
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/fcbg-hnp-meeg/bsl" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">bsl.Player</a><ul>
+<li><a class="reference internal" href="#bsl.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
+<li><a class="reference internal" href="#bsl.Player.get_channel_types"><code class="docutils literal notranslate"><span class="pre">Player.get_channel_types()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.get_channel_units"><code class="docutils literal notranslate"><span class="pre">Player.get_channel_units()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.rename_channels"><code class="docutils literal notranslate"><span class="pre">Player.rename_channels()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.set_channel_units"><code class="docutils literal notranslate"><span class="pre">Player.set_channel_units()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.start"><code class="docutils literal notranslate"><span class="pre">Player.start()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.stop"><code class="docutils literal notranslate"><span class="pre">Player.stop()</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.ch_names"><code class="docutils literal notranslate"><span class="pre">Player.ch_names</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.chunk_size"><code class="docutils literal notranslate"><span class="pre">Player.chunk_size</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.compensation_grade"><code class="docutils literal notranslate"><span class="pre">Player.compensation_grade</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.fname"><code class="docutils literal notranslate"><span class="pre">Player.fname</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.info"><code class="docutils literal notranslate"><span class="pre">Player.info</span></code></a></li>
+<li><a class="reference internal" href="#bsl.Player.name"><code class="docutils literal notranslate"><span class="pre">Player.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=d2ed0b38"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    </body>
+</html>

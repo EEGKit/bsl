@@ -1,0 +1,11 @@
+﻿bsl.Player
+==========
+
+.. currentmodule:: bsl
+
+.. autoclass:: Player
+   :members:
+   :inherited-members:
+
+.. minigallery:: bsl.Player
+    :add-heading:

@@ -1,0 +1,11 @@
+﻿bsl.Stream
+==========
+
+.. currentmodule:: bsl
+
+.. autoclass:: Stream
+   :members:
+   :inherited-members:
+
+.. minigallery:: bsl.Stream
+    :add-heading:
